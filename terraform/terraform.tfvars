@@ -1,1 +1,1 @@
-gcp_project= "first-planet-316414"
+gcp_project= "europe-west1"
