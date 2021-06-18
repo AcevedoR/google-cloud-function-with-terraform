@@ -18,10 +18,16 @@ resource "google_storage_bucket" "bucket" {
   name = "functions1-bucket"
 }
 
+data "archive_file" "local_tracer_source" {
+  type        = "zip"
+  source_dir  = "../src"
+  output_path = "./function_content.zip"
+}
+
 resource "google_storage_bucket_object" "archive" {
-  name   = "index.zip"
+  name   = "function_content.zip"
   bucket = google_storage_bucket.bucket.name
-  source = "../src"
+  source = "./function_content.zip"
 }
 
 resource "google_cloudfunctions_function" "function" {
@@ -44,7 +50,7 @@ resource "google_cloudfunctions_function" "function" {
   }
 }
 
-# IAM entry for a single user to invoke the function
+# IAM entry for all users to invoke the function
 resource "google_cloudfunctions_function_iam_member" "invoker" {
   project        = google_cloudfunctions_function.function.project
   region         = google_cloudfunctions_function.function.region
@@ -54,3 +60,4 @@ resource "google_cloudfunctions_function_iam_member" "invoker" {
 #  member = "user:myFunctionInvoker@example.com" TODO is it ugly ?
   member = "allUsers"
 }
+

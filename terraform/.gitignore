@@ -36,3 +36,5 @@ override.tf.json
 
 **/.*secret*
 **/.*key*
+
+function_content.zip
