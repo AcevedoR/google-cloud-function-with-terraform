@@ -14,15 +14,17 @@ resource "google_storage_bucket" "functions_bucket" {
   force_destroy = true
 }
 
-data "archive_file" "local_tracer_source" {
+data "archive_file" "function_archive" {
   type        = "zip"
   source_dir  = "../src"
-  output_path = "./function_content.zip"
+  output_path = var.bucket_archive_filepath
 }
+
+# https://github.com/hashicorp/terraform-provider-google/issues/1938 dynamic name, otherwise the Function cannot be updated
 resource "google_storage_bucket_object" "archive" {
-  name   = "function_content.zip"
+  name = format("%s#%s", var.bucket_archive_filepath, data.archive_file.function_archive.output_md5)
   bucket = google_storage_bucket.functions_bucket.name
-  source = "./function_content.zip"
+  source = data.archive_file.function_archive.output_path
 }
 
 resource "google_cloudfunctions_function" "function" {
