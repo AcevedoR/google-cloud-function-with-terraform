@@ -16,6 +16,14 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+
+      # Setup gcloud CLI
+      - uses: google-github-actions/setup-gcloud@master
+        with:
+          version: '290.0.1'
+          service_account_key: ${{ secrets.GCP_SA_KEY }}
+          project_id: ${{ secrets.GCP_PROJECT }}
+
       - name: terraform apply
         uses: dflook/terraform-apply@v1
         with:
