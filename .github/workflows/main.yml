@@ -21,4 +21,4 @@ jobs:
         with:
           path: terraform
           auto_approve: true
-          backend_config: credentials=${{ secrets.GCP_SA_KEY }}
+          backend_config: "credentials=${{ secrets.GCP_SA_KEY }}"
