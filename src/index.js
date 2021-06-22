@@ -12,5 +12,5 @@
     ? Buffer.from(message.data, 'base64').toString()
     : 'empty';
 
-  console.log(`Hello I am google-cloud-function-with-terraform, deployed with github actions, message was: ${name} !!`);
+  console.log(`Hello I am google-cloud-function-with-terraform, deployed with github actions and terraform, message was: ${name} !!`);
 };
