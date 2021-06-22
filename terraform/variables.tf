@@ -9,3 +9,6 @@ variable "gcp_region" {
 variable "gcp_zone" {
   default = "europe-west1-b"
 }
+
+variable "function_topic"{
+}
