@@ -8,7 +8,7 @@ to deploy the GCP Function (located at `./src`)
 Terraform state is saved in a Google Cloud Storage named `terraform-state-bucket-2` (bucket is handled by Terraform)
 
 ## Requirements
-- GCP Service Account, with Functions, Roles and Storage Object permissions.
+- GCP Service Account, with `Cloud Function Developer`, `Service Account User` and `Storage Admin` permissions.
 - Secrets on Github repository:
     - GCP_SA_KEY (service account Json)
     - GCP_PROJECT (project id)
