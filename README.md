@@ -1,5 +1,5 @@
 # google-cloud-function-with-terraform
-deploy GCP Pub/Sub function with terraform
+Deploy GCP Pub/Sub function with terraform
 
 ## How
 On each commit, Github Actions applies Terraform conf (located at `./terraform`), 
