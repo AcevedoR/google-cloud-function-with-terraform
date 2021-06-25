@@ -1,4 +1,5 @@
 # Setup
+/*
 resource "google_storage_bucket" "terraform-backend-bucket" {
   name          = "terraform-state-bucket-2"
   force_destroy = true
@@ -7,6 +8,7 @@ resource "google_storage_bucket" "terraform-backend-bucket" {
     enabled = true
   }
 }
+*/
 
 # Functions
 resource "google_storage_bucket" "functions_bucket" {
