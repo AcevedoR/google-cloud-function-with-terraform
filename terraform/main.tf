@@ -1,6 +1,6 @@
 # Setup
 resource "google_storage_bucket" "terraform-backend-bucket" {
-  name          = "terraform-state-bucket-2"
+  name          = "terraform-state-bucket"
   force_destroy = true
   //storage_class = var.terraform-state-storage-class
   versioning {
