@@ -5,7 +5,7 @@ Deploy GCP Pub/Sub function with terraform
 On each commit, Github Actions applies Terraform conf (located at `./terraform`), 
 to deploy the GCP Function (located at `./src`)
 
-Terraform state is saved in a Google Cloud Storage named `terraform-state-bucket` (bucket is handled by Terraform)
+Terraform state is saved in a Google Cloud Storage named `terraform-state-bucket-2` (bucket is handled by Terraform)
 
 ## Requirements
 - GCP Service Account, with `Cloud Function Developer`, `Service Account User` and `Storage Admin` permissions.
